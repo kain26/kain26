@@ -4,7 +4,7 @@
 
 I build practical open-source tools around **AI agents, market structure, price action, and index options**.
 
-[![X](https://img.shields.io/badge/X-@mm__options-111111?style=flat-square&logo=x)](https://x.com/mm_options)
+[![X](https://img.shields.io/badge/@mm__options-111111?style=flat-square&logo=x)](https://x.com/mm_options)
 [![GitHub](https://img.shields.io/badge/GitHub-kain26-111111?style=flat-square&logo=github)](https://github.com/kain26)
 
 > ⚡ Exploring how AI agents, market data, and human judgment can work in the same trading loop.
