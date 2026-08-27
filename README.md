@@ -1,13 +1,13 @@
 # Hi, I'm Kain 👋
 
-💻 Software Engineer | 📈 Options Trader | 🤖 Building AI × Trading tools
+🤖 Building AI × FinTech tools | 💻 ex-PayPal Software Engineer
 
-I build practical open-source tools around **AI agents, market structure, price action, and index options**.
+I build practical open-source tools around **AI agents, financial software, market structure, and developer tooling**.
 
 [![X](https://img.shields.io/badge/@mm__options-111111?style=flat-square&logo=x)](https://x.com/mm_options)
 [![GitHub](https://img.shields.io/badge/GitHub-kain26-111111?style=flat-square&logo=github)](https://github.com/kain26)
 
-> ⚡ Exploring how AI agents, market data, and human judgment can work in the same trading loop.
+> ⚡ Exploring how AI agents, market data, and human judgment can work in the same loop.
 
 ## 🧰 Skills
 
@@ -16,6 +16,9 @@ I build practical open-source tools around **AI agents, market structure, price 
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-0f766e?style=flat-square)
 ![Prompt Engineering](https://img.shields.io/badge/Prompt%20Engineering-a855f7?style=flat-square)
+![Ollama](https://img.shields.io/badge/Ollama-111111?style=flat-square)
+![Qwen](https://img.shields.io/badge/Qwen-6C5CE7?style=flat-square)
+![FinTech](https://img.shields.io/badge/FinTech-0F766E?style=flat-square)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
