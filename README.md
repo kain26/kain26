@@ -27,6 +27,16 @@ I build practical open-source tools around **AI agents, financial software, mark
 ![Options](https://img.shields.io/badge/Options-0d9488?style=flat-square)
 ![Price Action](https://img.shields.io/badge/Price%20Action-b45309?style=flat-square)
 
+## 🚀 Shipped Products
+
+| Product | What I built | Link |
+|---|---|---|
+| **Maimai Options** | AI-powered options platform with a multi-agent signal system and trading tools. | [Live →](https://myspx.trade) |
+| **HMGolf** | Production iPad app for golf-club operations, including real-time location, tournaments, scoring, and multilingual workflows. | [App Store →](https://apps.apple.com/in/app/hmgolf/id6738853821) |
+| **Options Wall · 期权墙** | Interactive web book on GEX, dealer hedging, market structure, and SPX 0DTE. | [Read Online →](https://options-wall-book.mmoptions.workers.dev/) |
+
+> Some production work is closed-source. Public links above show products shipped to real users.
+
 ## 🌟 Open Source Projects
 
 <!-- FEATURED_PROJECTS:START -->
