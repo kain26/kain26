@@ -32,6 +32,7 @@ I build practical open-source tools around **AI agents, financial software, mark
 | Product | What I built | Link |
 |---|---|---|
 | **Maimai Options** | AI-powered options platform with a multi-agent signal system and trading tools. | [Live →](https://myspx.trade) |
+| **ContemDao** | Trading psychology SaaS with AI journaling, behavior diagnostics, and a Socratic coach — from emotion to awareness. | [Live →](https://contemdao.com/) |
 | **HMGolf** | Production iPad app for golf-club operations, including real-time location, tournaments, scoring, and multilingual workflows. | [App Store →](https://apps.apple.com/in/app/hmgolf/id6738853821) |
 | **Options Wall · 期权墙** | Interactive web book on GEX, dealer hedging, market structure, and SPX 0DTE. | [Read Online →](https://options-wall-book.mmoptions.workers.dev/) |
 
