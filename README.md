@@ -105,7 +105,7 @@ SPX Price Action Compass
 | [flink](https://github.com/kain26/flink) | Apache Flink | ![Stars](https://img.shields.io/github/stars/kain26/flink?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/flink?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [index-options-engine](https://github.com/kain26/index-options-engine) | First-class examples: SPX, SPY, QQQ. | ![Stars](https://img.shields.io/github/stars/kain26/index-options-engine?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/index-options-engine?style=flat-square&label=Forks&cacheSeconds=1800) |
 <!-- PROJECTS:END -->
-<!-- PROJECTS_SYNC:2026-W35 -->
+<!-- PROJECTS_SYNC:2026-W36 -->
 
 ---
 
