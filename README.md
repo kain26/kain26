@@ -63,18 +63,18 @@ SPX Price Action Compass
 <tr>
 <td width="50%" valign="top">
 
-### [price-action-skill](https://github.com/kain26/price-action-skill)
-—
-
-![Stars](https://img.shields.io/github/stars/kain26/price-action-skill?style=flat-square&label=Stars&cacheSeconds=1800) ![Forks](https://img.shields.io/github/forks/kain26/price-action-skill?style=flat-square&label=Forks&cacheSeconds=1800)
-
-</td>
-<td width="50%" valign="top">
-
 ### [options-wall-book](https://github.com/kain26/options-wall-book)
 《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本
 
 ![Stars](https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800) ![Forks](https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800)
+
+</td>
+<td width="50%" valign="top">
+
+### [price-action-skill](https://github.com/kain26/price-action-skill)
+—
+
+![Stars](https://img.shields.io/github/stars/kain26/price-action-skill?style=flat-square&label=Stars&cacheSeconds=1800) ![Forks](https://img.shields.io/github/forks/kain26/price-action-skill?style=flat-square&label=Forks&cacheSeconds=1800)
 
 </td>
 </tr>
@@ -88,8 +88,8 @@ SPX Price Action Compass
 |---|---|---:|---:|
 | [SPX-Price-Action-Compass](https://github.com/kain26/SPX-Price-Action-Compass) | SPX Price Action Compass | ![Stars](https://img.shields.io/github/stars/kain26/SPX-Price-Action-Compass?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/SPX-Price-Action-Compass?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [trading-second-brain](https://github.com/kain26/trading-second-brain) | — | ![Stars](https://img.shields.io/github/stars/kain26/trading-second-brain?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/trading-second-brain?style=flat-square&label=Forks&cacheSeconds=1800) |
-| [price-action-skill](https://github.com/kain26/price-action-skill) | — | ![Stars](https://img.shields.io/github/stars/kain26/price-action-skill?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/price-action-skill?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [options-wall-book](https://github.com/kain26/options-wall-book) | 《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本 | ![Stars](https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800) |
+| [price-action-skill](https://github.com/kain26/price-action-skill) | — | ![Stars](https://img.shields.io/github/stars/kain26/price-action-skill?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/price-action-skill?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [iron-condor-skill](https://github.com/kain26/iron-condor-skill) | — | ![Stars](https://img.shields.io/github/stars/kain26/iron-condor-skill?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/iron-condor-skill?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [EchoNav](https://github.com/kain26/EchoNav) | The project is built as a transcription-to-video pipeline. It takes an audio file (MP3/M4A), uses multimodal AI to extract text with precise word-level timestamps, and renders a synchronized visual experience on an HTML5 Canvas. Users can preview the "text-podcast" in real-time and export a high-quality WebM video directly from their browser. | ![Stars](https://img.shields.io/github/stars/kain26/EchoNav?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/EchoNav?style=flat-square&label=Forks&cacheSeconds=1800) |
 | [go-web-zero](https://github.com/kain26/go-web-zero) | go web zero（quickly start), 【bilibili】学习Go Web 编程快速入门【Golang/Go语言】(完结)的源代码及笔记 | ![Stars](https://img.shields.io/github/stars/kain26/go-web-zero?style=flat-square&label=Stars&cacheSeconds=1800) | ![Forks](https://img.shields.io/github/forks/kain26/go-web-zero?style=flat-square&label=Forks&cacheSeconds=1800) |
