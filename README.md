@@ -59,16 +59,16 @@ I build practical products at the intersection of **AI agents, financial softwar
 <p><img alt="Stars" src="https://img.shields.io/github/stars/kain26/SPX-Price-Action-Compass?style=flat-square&label=Stars&cacheSeconds=1800">&nbsp; <img alt="Forks" src="https://img.shields.io/github/forks/kain26/SPX-Price-Action-Compass?style=flat-square&label=Forks&cacheSeconds=1800"></p>
 </td>
 <td width="50%" valign="top">
-<h3><a href="https://github.com/kain26/options-wall-book">options-wall-book</a></h3>
-<p>《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本</p>
-<p><img alt="Stars" src="https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800">&nbsp; <img alt="Forks" src="https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800"></p>
+<h3><a href="https://github.com/kain26/trading-second-brain">trading-second-brain</a></h3>
+<p>No description yet.</p>
+<p><img alt="Stars" src="https://img.shields.io/github/stars/kain26/trading-second-brain?style=flat-square&label=Stars&cacheSeconds=1800">&nbsp; <img alt="Forks" src="https://img.shields.io/github/forks/kain26/trading-second-brain?style=flat-square&label=Forks&cacheSeconds=1800"></p>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<h3><a href="https://github.com/kain26/trading-second-brain">trading-second-brain</a></h3>
-<p>No description yet.</p>
-<p><img alt="Stars" src="https://img.shields.io/github/stars/kain26/trading-second-brain?style=flat-square&label=Stars&cacheSeconds=1800">&nbsp; <img alt="Forks" src="https://img.shields.io/github/forks/kain26/trading-second-brain?style=flat-square&label=Forks&cacheSeconds=1800"></p>
+<h3><a href="https://github.com/kain26/options-wall-book">options-wall-book</a></h3>
+<p>《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本</p>
+<p><img alt="Stars" src="https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800">&nbsp; <img alt="Forks" src="https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800"></p>
 </td>
 <td width="50%" valign="top">
 <h3><a href="https://github.com/kain26/price-action-skill">price-action-skill</a></h3>
@@ -87,8 +87,8 @@ I build practical products at the intersection of **AI agents, financial softwar
 <br>
 <table>
 <tr><td valign="top"><a href="https://github.com/kain26/SPX-Price-Action-Compass"><strong>SPX-Price-Action-Compass</strong></a><br><sub>SPX Price Action Compass</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/SPX-Price-Action-Compass?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/SPX-Price-Action-Compass?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
-<tr><td valign="top"><a href="https://github.com/kain26/options-wall-book"><strong>options-wall-book</strong></a><br><sub>《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
 <tr><td valign="top"><a href="https://github.com/kain26/trading-second-brain"><strong>trading-second-brain</strong></a><br><sub>No description yet.</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/trading-second-brain?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/trading-second-brain?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
+<tr><td valign="top"><a href="https://github.com/kain26/options-wall-book"><strong>options-wall-book</strong></a><br><sub>《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/options-wall-book?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/options-wall-book?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
 <tr><td valign="top"><a href="https://github.com/kain26/price-action-skill"><strong>price-action-skill</strong></a><br><sub>No description yet.</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/price-action-skill?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/price-action-skill?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
 <tr><td valign="top"><a href="https://github.com/kain26/iron-condor-skill"><strong>iron-condor-skill</strong></a><br><sub>No description yet.</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/iron-condor-skill?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/iron-condor-skill?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
 <tr><td valign="top"><a href="https://github.com/kain26/EchoNav"><strong>EchoNav</strong></a><br><sub>The project is built as a transcription-to-video pipeline. It takes an audio file (MP3/M4A), uses multimodal AI to extract text with precise word-lev…</sub></td><td align="right" valign="top"><img alt="Stars" src="https://img.shields.io/github/stars/kain26/EchoNav?style=flat-square&label=Stars&cacheSeconds=1800"><br><img alt="Forks" src="https://img.shields.io/github/forks/kain26/EchoNav?style=flat-square&label=Forks&cacheSeconds=1800"></td></tr>
