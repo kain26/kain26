@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -21,10 +22,15 @@ FEATURED_END = "<!-- FEATURED_PROJECTS:END -->"
 PROJECTS_START = "<!-- PROJECTS:START -->"
 PROJECTS_END = "<!-- PROJECTS:END -->"
 SYNC_PATTERN = re.compile(r"<!-- PROJECTS_SYNC:[0-9]{4}-W[0-9]{2} -->")
+DESCRIPTION_LIMIT = 150
 
 
 def fetch_repositories(username: str, token: str | None = None) -> list[dict[str, Any]]:
-    """Fetch every repository returned for a GitHub user."""
+    """Fetch public repositories from GitHub's public user endpoint.
+
+    Authentication only raises the API rate limit here. Unlike /user/repos,
+    /users/{username}/repos is documented to return public repositories.
+    """
     repositories: list[dict[str, Any]] = []
     page = 1
 
@@ -84,7 +90,7 @@ def public_owned_repositories(
             continue
         if repository.get("private") is not False:
             continue
-        if repository.get("visibility", "public") != "public":
+        if repository.get("visibility") != "public":
             continue
         if repository.get("fork") is not False:
             continue
@@ -102,22 +108,36 @@ def public_owned_repositories(
     )
 
 
-def markdown_text(value: str | None, fallback: str = "—") -> str:
-    """Escape API text for a compact Markdown table/cell."""
+def plain_text(value: str | None, fallback: str = "No description yet.") -> str:
+    """Normalize API text for compact project cards."""
     if not value:
         return fallback
-    return " ".join(value.split()).replace("|", "\\|")
+    return " ".join(value.split())
+
+
+def compact_description(value: str | None, limit: int = DESCRIPTION_LIMIT) -> str:
+    """Keep generated project cards readable when a repository has a long bio."""
+    description = plain_text(value)
+    if len(description) <= limit:
+        return description
+    return f"{description[: limit - 1].rstrip()}…"
+
+
+def html_text(value: str | None, fallback: str = "No description yet.") -> str:
+    """Escape normalized API text before inserting it into an HTML card."""
+    return html.escape(compact_description(value) or fallback)
 
 
 def metric_badge(username: str, repository: str, metric: str) -> str:
-    """Build a live shields.io badge for stars or forks."""
+    """Build a live shields.io image for stars or forks."""
     owner = quote(username, safe="")
     repo = quote(repository, safe="")
     label = "Stars" if metric == "stars" else "Forks"
-    return (
-        f"![{label}](https://img.shields.io/github/{metric}/{owner}/{repo}"
-        f"?style=flat-square&label={label}&cacheSeconds=1800)"
+    source = (
+        f"https://img.shields.io/github/{metric}/{owner}/{repo}"
+        f"?style=flat-square&label={label}&cacheSeconds=1800"
     )
+    return f'<img alt="{label}" src="{source}">'
 
 
 def render_featured(repositories: list[dict[str, Any]], username: str, count: int = 4) -> str:
@@ -132,19 +152,16 @@ def render_featured(repositories: list[dict[str, Any]], username: str, count: in
     for repository in featured:
         name = repository["name"]
         url = repository.get("html_url") or f"https://github.com/{username}/{name}"
-        description = markdown_text(repository.get("description"))
+        description = html_text(repository.get("description"))
         stars = metric_badge(username, name, "stars")
         forks = metric_badge(username, name, "forks")
         cells.append(
             "\n".join(
                 [
                     '<td width="50%" valign="top">',
-                    "",
-                    f"### [{markdown_text(name)}]({url})",
-                    description,
-                    "",
-                    f"{stars} {forks}",
-                    "",
+                    f'<h3><a href="{html.escape(url, quote=True)}">{html.escape(name)}</a></h3>',
+                    f"<p>{description}</p>",
+                    f"<p>{stars}&nbsp; {forks}</p>",
                     "</td>",
                 ]
             )
@@ -160,26 +177,35 @@ def render_featured(repositories: list[dict[str, Any]], username: str, count: in
 
 
 def render_projects(repositories: list[dict[str, Any]], username: str) -> str:
-    """Render all public, owned, non-fork repositories."""
+    """Render all public projects in a compact, collapsible list."""
     if not repositories:
         return "_No public projects yet._"
 
     rows = [
-        "| Project | Description | Stars | Forks |",
-        "|---|---|---:|---:|",
+        "<details>",
+        f"<summary><strong>Browse all {len(repositories)} public projects</strong></summary>",
+        "<br>",
+        "<table>",
     ]
     for repository in repositories:
         name = repository["name"]
         url = repository.get("html_url") or f"https://github.com/{username}/{name}"
-        description = markdown_text(repository.get("description"))
+        description = html_text(repository.get("description"))
         if repository.get("archived"):
-            description = f"Archived · {description}"
+            description = f"<em>Archived</em> · {description}"
         rows.append(
-            "| "
-            f"[{markdown_text(name)}]({url}) | {description} | "
-            f"{metric_badge(username, name, 'stars')} | "
-            f"{metric_badge(username, name, 'forks')} |"
+            "<tr>"
+            '<td valign="top">'
+            f'<a href="{html.escape(url, quote=True)}"><strong>{html.escape(name)}</strong></a>'
+            f"<br><sub>{description}</sub>"
+            "</td>"
+            '<td align="right" valign="top">'
+            f"{metric_badge(username, name, 'stars')}<br>"
+            f"{metric_badge(username, name, 'forks')}"
+            "</td>"
+            "</tr>"
         )
+    rows.extend(["</table>", "</details>"])
     return "\n".join(rows)
 
 

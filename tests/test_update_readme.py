@@ -1,6 +1,8 @@
+import io
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.update_readme import (
     FEATURED_END,
@@ -8,6 +10,8 @@ from scripts.update_readme import (
     PROJECTS_END,
     PROJECTS_START,
     SYNC_PATTERN,
+    compact_description,
+    fetch_repositories,
     public_owned_repositories,
     update_readme,
 )
@@ -39,6 +43,19 @@ def repository(
 
 
 class UpdateReadmeTests(unittest.TestCase):
+    def test_fetch_uses_public_user_endpoint_when_authenticated(self) -> None:
+        response = io.BytesIO(b"[]")
+
+        with patch("scripts.update_readme.urlopen", return_value=response) as mocked_open:
+            result = fetch_repositories("kain26", "workflow-token")
+
+        request = mocked_open.call_args.args[0]
+        headers = {key.casefold(): value for key, value in request.header_items()}
+        self.assertEqual(result, [])
+        self.assertEqual(headers["authorization"], "Bearer workflow-token")
+        self.assertIn("/users/kain26/repos?", request.full_url)
+        self.assertNotIn("/user/repos?", request.full_url)
+
     def test_filters_every_private_repo_even_if_api_returns_it(self) -> None:
         repositories = [
             repository("public", stars=2),
@@ -53,6 +70,14 @@ class UpdateReadmeTests(unittest.TestCase):
         result = public_owned_repositories(repositories, "kain26")
 
         self.assertEqual([repo["name"] for repo in result], ["public"])
+
+    def test_fails_closed_when_visibility_is_missing(self) -> None:
+        incomplete = repository("unknown")
+        incomplete.pop("visibility")
+
+        result = public_owned_repositories([incomplete], "kain26")
+
+        self.assertEqual(result, [])
 
     def test_sorts_by_stars_then_forks_then_name(self) -> None:
         repositories = [
@@ -106,6 +131,11 @@ class UpdateReadmeTests(unittest.TestCase):
         self.assertIn("<!-- PROJECTS_SYNC:2026-W35 -->", output)
         self.assertEqual(len(SYNC_PATTERN.findall(output)), 1)
         self.assertNotIn("\nold\n", output)
+
+    def test_compacts_long_descriptions(self) -> None:
+        result = compact_description("  A   long\nproject description  ", limit=16)
+
+        self.assertEqual(result, "A long project…")
 
 
 if __name__ == "__main__":
