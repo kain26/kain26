@@ -23,6 +23,26 @@ PROJECTS_START = "<!-- PROJECTS:START -->"
 PROJECTS_END = "<!-- PROJECTS:END -->"
 SYNC_PATTERN = re.compile(r"<!-- PROJECTS_SYNC:[0-9]{4}-W[0-9]{2} -->")
 DESCRIPTION_LIMIT = 150
+CJK_PATTERN = re.compile(r"[\u3400-\u9fff\uF900-\uFAFF\u3040-\u30ff\uac00-\ud7af]+")
+CJK_PUNCTUATION = re.compile(r"[《》【】（）·、]+")
+DESCRIPTION_OVERRIDES = {
+    "options-wall-book": (
+        "Options Wall — buyer edition: a responsive web book on GEX, "
+        "dealer hedging, and SPX 0DTE"
+    ),
+    "go-web-zero": (
+        "Go Web Zero (quick start) — source code and notes from a complete "
+        "Bilibili Go web programming course"
+    ),
+    "nowcoderSQL": (
+        "SQL practice solutions from Nowcoder, for interview prep in big data "
+        "development and data analysis"
+    ),
+    "bagholder-simulator": (
+        "Bagholder Simulator — a roguelike where you relive every market crash "
+        "(GME, LUNA, FTX...) and see how many years you survive. Pure-frontend."
+    ),
+}
 
 
 def fetch_repositories(username: str, token: str | None = None) -> list[dict[str, Any]]:
@@ -123,9 +143,25 @@ def compact_description(value: str | None, limit: int = DESCRIPTION_LIMIT) -> st
     return f"{description[: limit - 1].rstrip()}…"
 
 
-def html_text(value: str | None, fallback: str = "No description yet.") -> str:
-    """Escape normalized API text before inserting it into an HTML card."""
-    return html.escape(compact_description(value) or fallback)
+def english_description(name: str, value: str | None) -> str:
+    """Return an English-only project blurb for the public profile README."""
+    override = DESCRIPTION_OVERRIDES.get(name)
+    if override:
+        return compact_description(override)
+
+    description = compact_description(value)
+    if not CJK_PATTERN.search(description):
+        return description
+
+    stripped = CJK_PATTERN.sub(" ", description)
+    stripped = CJK_PUNCTUATION.sub(" ", stripped)
+    stripped = " ".join(stripped.split()).strip(" ·-—,;:")
+    return stripped or "No description yet."
+
+
+def html_text(value: str | None, fallback: str = "No description yet.", *, name: str = "") -> str:
+    """Escape normalized English API text before inserting it into an HTML card."""
+    return html.escape(english_description(name, value) or fallback)
 
 
 def metric_badge(username: str, repository: str, metric: str) -> str:
@@ -152,7 +188,7 @@ def render_featured(repositories: list[dict[str, Any]], username: str, count: in
     for repository in featured:
         name = repository["name"]
         url = repository.get("html_url") or f"https://github.com/{username}/{name}"
-        description = html_text(repository.get("description"))
+        description = html_text(repository.get("description"), name=name)
         stars = metric_badge(username, name, "stars")
         forks = metric_badge(username, name, "forks")
         cells.append(
@@ -190,7 +226,7 @@ def render_projects(repositories: list[dict[str, Any]], username: str) -> str:
     for repository in repositories:
         name = repository["name"]
         url = repository.get("html_url") or f"https://github.com/{username}/{name}"
-        description = html_text(repository.get("description"))
+        description = html_text(repository.get("description"), name=name)
         if repository.get("archived"):
             description = f"<em>Archived</em> · {description}"
         rows.append(

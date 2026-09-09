@@ -11,6 +11,7 @@ from scripts.update_readme import (
     PROJECTS_START,
     SYNC_PATTERN,
     compact_description,
+    english_description,
     fetch_repositories,
     public_owned_repositories,
     update_readme,
@@ -27,11 +28,12 @@ def repository(
     owner: str = "kain26",
     is_fork: bool = False,
     archived: bool = False,
+    description: str | None = None,
 ) -> dict:
     return {
         "name": name,
         "html_url": f"https://github.com/{owner}/{name}",
-        "description": f"Description for {name}",
+        "description": f"Description for {name}" if description is None else description,
         "owner": {"login": owner},
         "private": private,
         "visibility": visibility,
@@ -136,6 +138,52 @@ class UpdateReadmeTests(unittest.TestCase):
         result = compact_description("  A   long\nproject description  ", limit=16)
 
         self.assertEqual(result, "A long project…")
+
+    def test_uses_english_overrides_for_known_chinese_descriptions(self) -> None:
+        result = english_description(
+            "options-wall-book",
+            "《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本",
+        )
+
+        self.assertIn("Options Wall", result)
+        self.assertNotRegex(result, r"[\u3400-\u9fff]")
+
+    def test_strips_chinese_from_unknown_mixed_descriptions(self) -> None:
+        result = english_description(
+            "unknown-repo",
+            "接盘侠模拟器 · Bagholder Simulator — a roguelike",
+        )
+
+        self.assertEqual(result, "Bagholder Simulator — a roguelike")
+        self.assertNotRegex(result, r"[\u3400-\u9fff]")
+
+    def test_generated_readme_stays_english(self) -> None:
+        template = (
+            f"before\n{FEATURED_START}\nold\n{FEATURED_END}\n"
+            f"middle\n{PROJECTS_START}\nold\n{PROJECTS_END}\n"
+            "<!-- PROJECTS_SYNC:2026-W34 -->\nafter\n"
+        )
+        with tempfile.TemporaryDirectory() as temp_directory:
+            readme = Path(temp_directory) / "README.md"
+            readme.write_text(template, encoding="utf-8")
+            update_readme(
+                readme,
+                [
+                    repository(
+                        "options-wall-book",
+                        stars=5,
+                        description="《期权墙》买方篇：GEX、做市商对冲与 SPX 0DTE 实战的响应式网页读本",
+                    )
+                ],
+                "kain26",
+                4,
+                "2026-W35",
+            )
+            output = readme.read_text(encoding="utf-8")
+
+        self.assertIn("Options Wall", output)
+        self.assertNotIn("期权墙", output)
+        self.assertNotRegex(output, r"[\u3400-\u9fff]")
 
 
 if __name__ == "__main__":
