@@ -106,7 +106,7 @@ I build practical products at the intersection of **AI agents, financial softwar
 </table>
 </details>
 <!-- PROJECTS:END -->
-<!-- PROJECTS_SYNC:2026-W41 -->
+<!-- PROJECTS_SYNC:2026-W42 -->
 
 ---
 
